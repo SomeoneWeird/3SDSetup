@@ -1,12 +1,15 @@
 var guide = "3ds.guide";
 
 function set_step_list() {
-    var ver_data = [];
-         var form_data = $("#data_ver").serializeArray();
+    var ver_data = window.STEP_FORM_DATA || [];
+
+    if (!ver_data.length) {
+        var form_data = $("#data_ver").serializeArray();
         var i;
         for (i = 0; i <= 5; i++) {
             ver_data[i] = form_data[i].value;
         };
+    };
     
     var console = ver_data[0];
     var vers = Number(ver_data[1] + ver_data[2] + ver_data[3]);
